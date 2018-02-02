@@ -1,1 +1,10 @@
 
+.PlantUMLの例
+[plantuml]
+....
+class 会社員
+class 技術社員
+class 会社
+会社員 <|-- 技術社員
+会社 -> 会社員 : 給与を払う
+....
