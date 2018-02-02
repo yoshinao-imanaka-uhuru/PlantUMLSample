@@ -7,7 +7,7 @@ Alice -> Bob: Another authentication Request
 Alice <-- Bob: another authentication Response
 @enduml
 ```
-```
+```uml
 @startuml{news-after-login.png}
 '画像変換するときにここで指定したファイル名になる。
  
