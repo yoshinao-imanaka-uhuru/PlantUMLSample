@@ -42,3 +42,17 @@ Alice -> Bob: Another authentication Request
 Alice <-- Bob: another authentication Response
 @enduml
 ```
+
+[cols="<,^,>", options="header,autowidth"]
+|============================
+|左寄せ|中央寄せ|右寄せ
+|l|c|r
+|============================
+
+[cols="<", options="header,autowidth"]
+|============================
+|機能|100G/クラウド|担当
+|入力画面開発|100G|
+|enebular の Mbed Cloud デプロイ|100G・クラウド|
+|リアルタイムWebアプリケーション|100G|
+|============================
