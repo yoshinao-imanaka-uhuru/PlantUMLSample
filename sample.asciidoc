@@ -49,10 +49,3 @@ Alice <-- Bob: another authentication Response
 |l|c|r
 |============================
 
-[cols="<", options="header,autowidth"]
-|============================
-|機能|100G/クラウド|担当
-|入力画面開発|100G|
-|enebular の Mbed Cloud デプロイ|100G・クラウド|
-|リアルタイムWebアプリケーション|100G|
-|============================
