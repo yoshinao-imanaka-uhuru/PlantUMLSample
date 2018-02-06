@@ -1,21 +1,50 @@
-
-.PlantUMLの例
-[plantuml]
-....
-class 会社員
-class 技術社員
-class 会社
-会社員 <|-- 技術社員
-会社 -> 会社員 : 給与を払う
-....
-
+= 出退勤記録機能
+=== ユースケース図
 
 ```uml
-@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
- 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+@startuml 入力画面(100G) ユースケース図のサンプル<
+title <size:18>入力画面(100G) ユースケース図のサンプル</size>
+left to right direction
+
+actor :社員: as user
+actor :データベース: as DB
+
+package "Web server" as WebServer {
+
+usecase (<u>WorKation入力画面</u>\n 開始・終了) as input
+
+user -- (仕事)
+(仕事) -- input
+user -- (バケーション)
+(バケーション) -- input
+
+input ..> (社員認証) : <<include>>
+input ..> (勤怠変更) : <<extends>>
+(社員認証) -- DB
+(勤怠変更) ..> (社員認証) : <<include>>
+(勤怠変更) -- DB     
+}
+
+@enduml
+```
+
+=== シーケンス図
+
+```uml
+@startuml 出退勤記録機能シーケンス
+autonumber
+ワーケーションユーザー->モバイル端末 : Wi-Fi 接続する
+
+ワーケーションユーザー->モバイル端末 : ワーケーション活動画面を開く
+モバイル端末->ワーケーション活動画面 : 画面を提供する
+ワーケーション活動画面->ワーケーションユーザー : ワーケーション活動画面
+
+ワーケーションユーザー->ワーケーション活動画面 : メールアドレスを入力する
+note right: ブラウザ Cookie や\n一時ファイル等で保存する
+ワーケーションユーザー->ワーケーション活動画面 : 活動開始打刻する
+ワーケーション活動画面->モバイル端末 : HTTP POST (時刻,メールアドレス,開始フラグ)
+
+ワーケーションユーザー->ワーケーション活動画面 : 活動終了を打刻する
+ワーケーション活動画面->モバイル端末 : HTTP POST (時刻,メールアドレス,終了フラグ)
 @enduml
 ```
